@@ -73,4 +73,47 @@ for(var i=goods.length-1;i>=0;i--){
 10.
 const b= a.split("").reduceRight((prev,cur,i,a) =>{return {[cur]:prev}}, null);
 
-11.
+11. script можно вынести в отдельный файл.
+
+        <div id="root">
+
+        </div>
+        <p>Some text here</p>
+
+            <script type="text/babel">
+
+
+                class FormInput extends React.Component {
+                    id;
+
+                    constructor(props){
+                        super();
+                        this.state={
+                            name:'',
+                        };
+                        this.id=props.Id;
+                    }
+
+                    handleNameChange = (event) => {
+                        this.setState({name: event.target.value});
+                    };
+                    render(){
+                        return <input
+                                type="text"
+                                value={this.state.name}
+                                onChange={this.handleNameChange}
+                                id={this.id}
+                                />;
+                    }
+
+                };
+                function Vasya(props){
+                    return <div className ="vasya" style={props.styleBorder}>
+                        <label htmlFor="name">Enter your name: </label>
+                        <FormInput Id="name"/>
+                    </div>;
+                };
+
+                ReactDOM.render(<Vasya styleBorder={{border: "1px solid gray"}}/>, document.getElementById("root"));
+
+            </script>
