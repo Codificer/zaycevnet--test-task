@@ -71,3 +71,6 @@ for(var i=goods.length-1;i>=0;i--){
 }
 
 10.
+const b= a.split("").reduceRight((prev,cur,i,a) =>{return {[cur]:prev}}, null);
+
+11.
