@@ -50,3 +50,24 @@ console.log(s);
 8. Программа выведет число 5. ПРичина - изначально, в области видимости программы переменная count была задана равной 5. Затем, в области видимости if - 
 была переопределена эта переменная новым определением let count и ей присвоено новое значение. Это значение действительно только в области видимости if.
 По выходу из него - count уже вновь равно 5.
+
+9. //с новым массивом
+let new_goods = goods.reduce(
+    function(prev,good,i,goods){
+        switch(good.type){
+            case 'apple': return prev.concat({id:good.id, type:good.type, price:3*good.price});
+            case 'mango': return prev;
+            default: return prev.concat(good);
+        }
+    },[]
+);
+
+//изменение старого массива
+for(var i=goods.length-1;i>=0;i--){
+    switch(goods[i].type){
+        case 'apple':goods[i].price*=3;break;
+        case 'mango':goods.splice(i,1);break;
+    }
+}
+
+10.
